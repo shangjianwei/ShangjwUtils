@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * 使用方法:
  * 1,找到自己使用的宽高，替换 baseWidth（宽），baseHeight（高）.
  * 2，选择自己要适配的屏幕宽放入 dppath中（别用非整数，如果屏幕不是整数，就向下取整）
- * 3，运行（右键->Run('Adaptive.main')）,会生成对应文件
+ * 3，在自己的Test创建对象并调用main方法一次
  * 在项目中的运用，使用时都用这里面的替换dp。如：20dp就写成@dimens/dp_20
  * 好处，在项目开始时，只要将生成自己的baseWidth的文件使用，
  * 等最后适配时，根据需要的添加需要的尺寸进行适配。
@@ -27,10 +27,10 @@ import java.math.BigDecimal;
 
 public class Adaptive {
     @NonNull
-    private double[] dpPath = {320, 360, 480, 720};
-    private double baseWidth = 360;
-    private double baseHeight = 640;
-    private String resPath;
+    private double[] dpPath = {320, 360, 480, 720};//需要适配的宽
+    private double baseWidth = 360;//默认的宽度
+    private double baseHeight = 640;//默认的高度
+    private String resPath = "";//res的绝对路径(一般不用改)
     @NonNull
     private String pathAdd = "\\app\\src\\main\\res\\";
 
@@ -86,9 +86,12 @@ public class Adaptive {
 
     private void startCreate() {
         System.out.println("msg");
-        File file = new File("");
-        String path = file.getAbsolutePath();
-        resPath = path + pathAdd;
+        if (resPath == null || resPath.equals("")) {
+            File file = new File("");
+            String path = file.getAbsolutePath();
+            resPath = path + pathAdd;
+        }
+
         try {
             for (int i = 0; i < dpPath.length; i++) {
                 initCreateOne(dpPath[i]);
