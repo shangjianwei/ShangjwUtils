@@ -20,6 +20,26 @@ public class LogUtils {
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
     private static String name = simpleDateFormat.format(new Date()) + "log.txt";
 
+    public static boolean isB() {
+        return b;
+    }
+
+    public static void setB(boolean b) {
+        LogUtils.b = b;
+    }
+
+    public static boolean isIsSave() {
+        return isSave;
+    }
+
+    public static String getPath() {
+        return path;
+    }
+
+    public static void setIsSave(boolean isSave) {
+        LogUtils.isSave = isSave;
+    }
+
     public static void V(String TAG, String value) {
         if (b) {
             Log.i(TAG, value);
