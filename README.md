@@ -23,7 +23,7 @@ allprojects {
 path是保存文件的路径。
 我们可以通过get、set方法得到这些值。
 其中b默认为true，isSave默认为false。
-##### SPUtils
+#### SPUtils
 通过SharedPreferences存放或读取数据的类。默认文件名为config，我们可以通过setNAME和getNAME方法来读取和设置文件名。
 #### Adaptive
 ##### 配置
