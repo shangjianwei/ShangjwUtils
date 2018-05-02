@@ -42,7 +42,7 @@ public class LogUtils {
 
     public static void V(String TAG, String value) {
         if (b) {
-            Log.i(TAG, value);
+            Log.v(TAG, value);
         }
         if (isSave) {
             save("VERBOSE", TAG, value);
@@ -51,7 +51,7 @@ public class LogUtils {
 
     public static void D(String TAG, String value) {
         if (b) {
-            Log.i(TAG, value);
+            Log.d(TAG, value);
         }
         if (isSave) {
             save("DEBUG", TAG, value);
@@ -69,7 +69,7 @@ public class LogUtils {
 
     public static void W(String TAG, String value) {
         if (b) {
-            Log.i(TAG, value);
+            Log.w(TAG, value);
         }
         if (isSave) {
             save("WARN", TAG, value);
@@ -78,22 +78,12 @@ public class LogUtils {
 
     public static void E(String TAG, String value) {
         if (b) {
-            Log.i(TAG, value);
+            Log.e(TAG, value);
         }
         if (isSave) {
             save("ERROR", TAG, value);
         }
     }
-
-    public static void A(String TAG, String value) {
-        if (b) {
-            Log.i(TAG, value);
-        }
-        if (isSave) {
-            save("ASSERT", TAG, value);
-        }
-    }
-
     private static void save(String type, String tag, String value) {
         String time = simpleDateFormat.format(new Date());
         String s = time + " " + type + " " + tag + " " + value + "\r\n";
